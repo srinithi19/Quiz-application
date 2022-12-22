@@ -1,5 +1,4 @@
 * {
-    box-sizing: border-box;
     line-height: 1.5;
 }
 body {
@@ -13,8 +12,8 @@ header {
 }
 h1 {
     text-align: center;
-    margin-bottom: 2rem;
-    padding: 2rem;
+    /* margin-bottom: 2rem; */
+    /* padding: 2rem; */
     font-size: 50px;
     color: rgb(14, 1, 1);
 }
@@ -33,3 +32,19 @@ main {
     flex-direction: column;
     width: 50%;
 }
+.btn {
+    background-color: green;
+    color: white;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    /* transition: all 0.2s ease-in-out; */
+  }
+  .scorebtn {
+    background-color: lightgrey;
+    color: black;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    /* transition: all 0.2s ease-in-out; */
+  }
