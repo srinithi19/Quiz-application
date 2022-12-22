@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+body {
+    margin: 2rem;
+    padding: 2rem;
+    font-size: 25px;;
+}
+header {
+    display: flex;
+    flex-direction: column;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    font-size: 50px;
+    color: rgb(14, 1, 1);
+}
+.main-container {
+    display: flex;
+    justify-content: space-between;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.info {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 50%;
+}
