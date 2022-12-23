@@ -6,11 +6,6 @@ const questions = [
         answer: "c. quotes"
     },
     {
-        question: "Arrays in JavaScript can be used to store _____.",
-        choices: ["a. numbers and strings", "b. other arrays", "c. booleans", "d. all of the above"],
-        answer: "b. other arrays"
-    },
-    {
         question: "Commonly used data types DO NOT include:",
         choices: ["a. strings", "b. booleans", "c. alerts", "d. numbers"],
         answer: "c. alerts"
@@ -33,7 +28,17 @@ const questions = [
     {
         question: "Which event occurs when the user presses a keyboard key?",
         choices: ["a. onclick", "b. keydown", "c. keyup", "d. onmouseclick"],
-        answer: "b.keydown"
+        answer: "b. keydown"
+    },
+    {
+        question: "Which event occurs when the user releases a keyboard key?",
+        choices: ["a. onclick", "b. keydown", "c. keyup", "d. onmouseclick"],
+        answer: "c. keyup"
+    },
+    {
+        question: "Arrays in javascript is used to store _____",
+        choices: ["a. other arrays", "b. variables", "c. objects", "d. all the above"],
+        answer: "d. all the above"
     }
 ];
 
@@ -48,50 +53,71 @@ let head = document.querySelector("header")
 // global variables
 let timeLeft = 60;
 let curQnIndex;
-let correct = 0;
+let correctAns = 0;
+let score = 0;
 
 
 //function to start quiz and timer
 let startQuiz = function () {
-    //info.classList.add("hide");
-    info.textContent="";
+    info.classList.add("hide");
+    //info.textContent="";
     curQnIndex = 0;
     let startTimer = setInterval(function () {
         if (timeLeft > 0) {
-        timeLeft--;
+            timeLeft--;
         }
         timeEL.textContent = "Time: " + timeLeft;
         if (timeLeft <= 0 || curQnIndex === questions.length) {
-        timeEL.textContent = "";
-        clearInterval(startTimer);
-        //endGame();
+            timeEL.textContent = "";
+            clearInterval(startTimer);
+            endGame();
         }
     }, 1000);
-  //function to display questions
-  nextQuestion();
-}
-
-//function to show questions
-let nextQuestion = function () {
-   showQuestion(questions[curQnIndex]);
+    //function to display questions
+    nextQuestion(questions[curQnIndex]);
 }
 
 // Dynamically generates html elements to display question and answer
-let showQuestion = function (questions) {
+let nextQuestion = function (questions) {
     questionEl.textContent = questions.question;
     questionEl.classList.add("qncontainer");
     head.appendChild(questionEl);
     questions.choices.forEach((choice) => {
-      const button = document.createElement("button");
-      button.classList.add("answerBtn");
-      button.innerText = choice;
-      questionEl.appendChild(button);
-      //button.addEventListener("click", checkAnswer);
+        const button = document.createElement("button");
+        button.classList.add("answerBtn");
+        button.innerText = choice;
+        questionEl.appendChild(button);
+        button.addEventListener("click", checkAnswer);
     });
-  };
+};
 
 
+//function to check answer and increment score if answer is correct or decrement timer by 10secs fro wrong answer
+function checkAnswer(e) {
+    let userAnswer = e.target.innerText;
+    const answer = questions[curQnIndex].answer;
+    if (userAnswer === answer) {
+        correctAns++;
+        e.target.classList.add("valid");  
+        curQnIndex++;
+    } else {
+        timeLeft -= 10;
+        if (timeLeft <= 0) {
+            timeLeft = 0;
+        }
+        e.target.classList.add("invalid");
+        curQnIndex++;
+        
+    }
+    if (curQnIndex < questions.length) {
+        setTimeout(nextQuestion(questions[curQnIndex]), 500);
+    }
+}
 
+function endGame() {
+    console.log("game over")
+
+}
 
 
 // event to be happened on click of "start" button

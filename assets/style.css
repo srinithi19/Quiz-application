@@ -36,6 +36,8 @@ main {
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 0.5rem;
+    width: 50%;
+    align-self: center;
 }
 .scorebtn {
     background-color: lightgrey;
@@ -43,6 +45,7 @@ main {
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 0.5rem;
+    font-size: 15px;
 }
 .qncontainer {
     align-self: center;
@@ -51,12 +54,25 @@ main {
     width: 60%;
     margin: 1rem;
     padding: 1rem;
+
 }
 .answerBtn {
     margin-top: 0.5rem;
-    padding: 1rem;
-    width: 50%;
+    padding: 0.5rem;
+    width: 70%;
 }
 .hide {
     display: none;
+}
+/* class for the correct option */
+.valid {
+    background-color: rgb(26, 107, 49);
+}
+  /* class for wrong option */
+.invalid {
+    background-color: rgb(143, 36, 36);
+}
+.btn:hover, .answerBtn:hover, .scorebtn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
