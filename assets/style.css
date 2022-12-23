@@ -12,8 +12,6 @@ header {
 }
 h1 {
     text-align: center;
-    /* margin-bottom: 2rem; */
-    /* padding: 2rem; */
     font-size: 50px;
     color: rgb(14, 1, 1);
 }
@@ -38,13 +36,27 @@ main {
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 0.5rem;
-    /* transition: all 0.2s ease-in-out; */
-  }
-  .scorebtn {
+}
+.scorebtn {
     background-color: lightgrey;
     color: black;
     border-radius: 0.5rem;
     margin-top: 1rem;
     padding: 0.5rem;
-    /* transition: all 0.2s ease-in-out; */
-  }
+}
+.qncontainer {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 1rem;
+    padding: 1rem;
+}
+.answerBtn {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    width: 50%;
+}
+.hide {
+    display: none;
+}

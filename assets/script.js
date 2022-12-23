@@ -42,6 +42,7 @@ let startButton = document.querySelector("#start");
 let info = document.querySelector(".info");
 let timeEL = document.querySelector(".timer");
 let questionEl = document.createElement("section");
+let head = document.querySelector("header")
 
 
 // global variables
@@ -63,7 +64,7 @@ let startQuiz = function () {
         if (timeLeft <= 0 || curQnIndex === questions.length) {
         timeEL.textContent = "";
         clearInterval(startTimer);
-        gameOver();
+        //endGame();
         }
     }, 1000);
   //function to display questions
@@ -75,6 +76,19 @@ let nextQuestion = function () {
    showQuestion(questions[curQnIndex]);
 }
 
+// Dynamically generates html elements to display question and answer
+let showQuestion = function (questions) {
+    questionEl.textContent = questions.question;
+    questionEl.classList.add("qncontainer");
+    head.appendChild(questionEl);
+    questions.choices.forEach((choice) => {
+      const button = document.createElement("button");
+      button.classList.add("answerBtn");
+      button.innerText = choice;
+      questionEl.appendChild(button);
+      //button.addEventListener("click", checkAnswer);
+    });
+  };
 
 
 
