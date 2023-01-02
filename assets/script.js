@@ -47,7 +47,9 @@ let startButton = document.querySelector("#start");
 let info = document.querySelector(".info");
 let timeEL = document.querySelector(".timer");
 let questionEl = document.createElement("section");
-let head = document.querySelector("header")
+let head = document.querySelector("header");
+let result = document.querySelector("#result");
+let ptext = document.querySelector("#text");
 
 
 // global variables
@@ -60,7 +62,6 @@ let score = 0;
 //function to start quiz and timer
 let startQuiz = function () {
     info.classList.add("hide");
-    //info.textContent="";
     curQnIndex = 0;
     let startTimer = setInterval(function () {
         if (timeLeft > 0) {
@@ -110,15 +111,18 @@ function checkAnswer(e) {
         
     }
     if (curQnIndex < questions.length) {
-        setTimeout(nextQuestion(questions[curQnIndex]), 500);
+        nextQuestion(questions[curQnIndex]);
     }
 }
 
+
+//stops the quiz znd print the score
 function endGame() {
-    console.log("game over")
-
+    questionEl.classList.add("hide");
+    result.classList.remove("hide");
+    ptext.innerHTML = `<strong>Your final score is ${(correctAns * 10)}</strong>`;
+    //saveScore();
 }
-
 
 // event to be happened on click of "start" button
 startButton.addEventListener("click", startQuiz);
