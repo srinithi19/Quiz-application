@@ -100,7 +100,7 @@ function checkAnswer(e) {
     if (userAnswer === answer) {
         correctAns++;
         e.target.classList.add("valid");  
-        alert("Thats correct!!")
+        //alert("Thats correct!!")
         curQnIndex++;
     } else {
         timeLeft -= 10;
@@ -108,11 +108,11 @@ function checkAnswer(e) {
             timeLeft = 0;
         }
         e.target.classList.add("invalid");
-        alert("Thats wrong. Correct answer is "+ answer);
+        //alert("Thats wrong. Correct answer is "+ answer);
         curQnIndex++;  
     }
     if (curQnIndex < questions.length) {
-        nextQuestion(questions[curQnIndex]);
+        setTimeout(nextQuestion(questions[curQnIndex]),500);
     }
 }
 

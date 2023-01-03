@@ -15,19 +15,10 @@
 
 This application generates quiz dynamically using HTML, CSS and Javascript. The user has about 1 minute to answer all questions and looses 10secs for every wrong answer. Once timer reaches 0 or when all questions are answered, then game is over. Final scores will be displayed and can be stored on local storage for viewing later.
 
- Highlights of this application:
+Key points:
 * Using an interval to track and display the remaining time
-* Dynamically creating HTML elements for each question and the answer 
+* Dynamically creating/displaying HTML elements for each question and the answer 
 * Storing and retrieving scores in local storage
-
-<br />
-
-## Learning Points 
-
-* creating dynamic html elements
-* event handling
-* Intervals and timeouts
-* Local storage
 
 <br />
 
@@ -35,8 +26,11 @@ This application generates quiz dynamically using HTML, CSS and Javascript. The 
 
 Welcome Page
 
+<br/>
+
 ![Quiz Introduction Page](./assets/images/Welcome.png)
 
+<br>
 
 When the user clicks the "Start" button on welcome page, the timer starts and a question is displayed as shown below.
 
@@ -59,6 +53,15 @@ High scores are displayed automatically after the user enters his/her initials, 
 <br />
 
 ![A list of scores](./assets/images/Scores.png)
+
+<br />
+
+## Learning Points 
+
+* create & display dynamic html elements
+* event handling
+* Intervals and timeouts
+* Local storage
 
 <br />
 
