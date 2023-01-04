@@ -79,3 +79,14 @@ main {
 #result {
     text-align: center;
 }
+@media screen and (max-width: 992px) {
+    body {
+        font-size: 15px;
+    }
+}
+  
+@media screen and (max-width: 550px) {
+    body {
+        font-size: 10px;
+    }
+}
