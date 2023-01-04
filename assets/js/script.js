@@ -50,6 +50,11 @@ let questionEl = document.createElement("section");
 let head = document.querySelector("header");
 let result = document.querySelector("#result");
 let ptext = document.querySelector("#text");
+let save = document.querySelector("#save");
+let initialEl = document.querySelector("#initials");
+let highscores = document.getElementById("highscore");
+
+
 
 
 // global variables
@@ -57,6 +62,8 @@ let timeLeft = 60;
 let curQnIndex;
 let correctAns = 0;
 let score = 0;
+let saveScores = JSON.parse(localStorage.getItem("saveScores")) || [];
+
 
 
 //function to start quiz and timer
@@ -112,7 +119,9 @@ function checkAnswer(e) {
         curQnIndex++;  
     }
     if (curQnIndex < questions.length) {
-        setTimeout(nextQuestion(questions[curQnIndex]),500);
+        setTimeout(function(){
+            nextQuestion(questions[curQnIndex])}
+            ,500);
     }
 }
 
@@ -122,8 +131,36 @@ function endGame() {
     questionEl.classList.add("hide");
     result.classList.remove("hide");
     ptext.innerHTML = `<strong>Your final score is ${(correctAns * 10)}</strong>`;
-    //saveScore();
+    saveScore();
 }
+
+function saveScore() {
+    save.addEventListener("click", function (e) {
+        e.preventDefault();
+        userInitial = initialEl.value;
+        if (userInitial === "") {
+          alert("Please Enter Initial");
+          return;
+        }
+    
+        result.classList.add("hide");
+        //object for holding user initial and score
+        let scoreObj = {
+          initial: userInitial,
+          score: correctAns * 10
+        };
+        //saving to local storage after pushing object to saveScores array
+        saveScores.push(scoreObj);
+        localStorage.setItem("saveScores", JSON.stringify(saveScores));
+        //changes location to highscores.html to display scores
+        location.assign("./highscores.html");
+      });   
+}
+
+// on click of view highscore button, displays highscores.html
+highscores.addEventListener("click", function () {
+    location.assign("./highscores.html");
+  });
 
 // event to be happened on click of "start" button
 startButton.addEventListener("click", startQuiz);

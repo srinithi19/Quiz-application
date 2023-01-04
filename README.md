@@ -52,7 +52,7 @@ High scores are displayed automatically after the user enters his/her initials, 
 
 <br />
 
-![A list of scores](./assets/images/Scores.png)
+![A list of scores](./assets/images/highscores.png)
 
 <br />
 
@@ -68,4 +68,4 @@ High scores are displayed automatically after the user enters his/her initials, 
 ## Links
 
 Github Repo - https://github.com/srinithi19/Quiz-application <br>
-Application URL - 
+Application URL - https://srinithi19.github.io/Quiz-application/
