@@ -80,13 +80,29 @@ main {
     text-align: center;
 }
 @media screen and (max-width: 992px) {
-    body {
-        font-size: 15px;
+    body,title {
+        font-size: 20px;
+    }
+    .scorebtn {
+        width:30%;
     }
 }
-  
-@media screen and (max-width: 550px) {
-    body {
-        font-size: 10px;
+
+@media screen and (max-width: 768px) {
+    body,title {
+        font-size: 18px;
     }
+    .scorebtn {
+        width:27%; 
+    } 
+}
+ 
+  
+@media screen and (max-width: 576px) {
+    body,title {
+        font-size: 15px;
+    }
+    .scorebtn {
+        width:25%; 
+    } 
 }
